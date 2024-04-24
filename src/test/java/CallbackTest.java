@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -6,7 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -35,7 +35,7 @@ class CallbackTest {
     }
 
     @Test
-    void ValidDataTest() {
+    void validDataTest() {
         driver.findElement(By.cssSelector("[type='text']")).sendKeys("Иванов Иван");
         driver.findElement(By.cssSelector("[type='tel']")).sendKeys("+79999999999");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
@@ -45,7 +45,7 @@ class CallbackTest {
     }
 
     @Test
-    void InvalidNameSurnameTest1() {
+    void invalidNameSurnameTest1() {
         driver.findElement(By.cssSelector("[type='text']")).sendKeys("Ivanov");
         driver.findElement(By.cssSelector("[type='tel']")).sendKeys("+79999999999");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
@@ -55,7 +55,7 @@ class CallbackTest {
     }
 
     @Test
-    void InvalidNameSurnameTest2() {
+    void invalidNameSurnameTest2() {
         driver.findElement(By.cssSelector("[type='text']")).sendKeys("");
         driver.findElement(By.cssSelector("[type='tel']")).sendKeys("+79999999999");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
@@ -65,7 +65,7 @@ class CallbackTest {
     }
 
     @Test
-    void EmptyCheckbox() {
+    void emptyCheckbox() {
         driver.findElement(By.cssSelector("[type='text']")).sendKeys("Иванов-Петров Иван");
         driver.findElement(By.cssSelector("[type='tel']")).sendKeys("+79999999999");
         driver.findElement(By.cssSelector(".button__text")).click();
@@ -74,7 +74,7 @@ class CallbackTest {
     }
 
     @Test
-    void InvalidPhoneTest1() {
+    void invalidPhoneTest1() {
         driver.findElement(By.cssSelector("[type='text']")).sendKeys("Иванов-Петров Иван");
         driver.findElement(By.cssSelector("[type='tel']")).sendKeys("");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
@@ -84,7 +84,7 @@ class CallbackTest {
     }
 
     @Test
-    void InvalidPhoneTest2() {
+    void invalidPhoneTest2() {
         driver.findElement(By.cssSelector("[type='text']")).sendKeys("Иванов-Петров Иван");
         driver.findElement(By.cssSelector("[type='tel']")).sendKeys("89998887766");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
